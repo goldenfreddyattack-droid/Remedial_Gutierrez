@@ -16,14 +16,13 @@
     <!-- Main content -->
     <div class="content">
         <div class="container-fluid">
-            <a href="#" class="btn btn-info">Add New Employee</a> <br> <br>
+            <a href="{{ route('employee.create') }}" class="btn btn-info">Add New Employee</a> <br> <br>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body p-0">
                                 <table class="table">
                                     <thead>
-                                        @foreach ($employees as $items)
                                         <tr>
                                             <th>ID</th>
                                             <th>First Name</th>
@@ -35,18 +34,24 @@
                                         </tr>
                                     </thead>
                                     <tbody  >
+                                          @foreach ($employee as $items)
                                         <tr>
                                             <td>{{ $items->id }}</td>
                                             <td>{{ $items->fname }}</td>
                                             <td>{{ $items->lname }}</td>
-                                            <td>{{ $items->midname }}</td>
-                                            <td>{{ $items->address }}</td>
+                                            <td>{{ $items->mname }}</td>
+                                            <td>{{ $items->add }}</td>
                                             <td>{{ $items->dob }}</td>
                                             <td> 
-                                                <a href="#" class="btn btn-primary btn-md active" role="button" aria-pressed="true">Edit</a>
-                                                <a href="#" class="btn btn-danger btn-md active" role="button" aria-pressed="true">Delete</a>
+                                                <a href="{{ route('employee.edit', $items->id) }}" class="btn btn-primary btn-md active" role="button" aria-pressed="true">Edit</a>
+                                               <form action="{{ route('employee.delete', $items->id) }}" method="POST">
+                                                 @csrf
+                                                 @method('DELETE')
+                                                 <button type="submit" class="btn btn-danger btn-md">Delete</button>
+                                                </form>
                                             </td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

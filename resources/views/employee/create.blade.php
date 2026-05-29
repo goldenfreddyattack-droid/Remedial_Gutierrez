@@ -1,3 +1,5 @@
+@extends('layouts.app')
+
 @section('content')
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -23,7 +25,8 @@
                 <div class="card-header">
                   <h3 class="card-title">Add new employee</h3>
                 </div>
-                <form>
+                <form action="{{ route('employee.store') }}" method="POST">
+                  @csrf
                     <div class="row card-body col-12">
                         <div class="form-group col-6">
                           <label for="exampleInputPassword1">Firstname</label>
@@ -32,8 +35,8 @@
                         </div>
                         <div class="form-group col-6">
                           <label for="exampleInputPassword1">Middlename</label>
-                          <input type="text" class="form-control g-2" id="midname" name="mname" placeholder="Enter your Middlename" require>
-                          @error('midname') <span class="text-danger">{{$message}}</span> @enderror
+                          <input type="text" class="form-control g-2" id="mname" name="mname" placeholder="Enter your Middlename" require>
+                          @error('mname') <span class="text-danger">{{$message}}</span> @enderror
                         </div> 
                         <div class="form-group col-12">
                           <label for="exampleInputPassword1">Lastname</label>
@@ -42,8 +45,8 @@
                         </div>
                         <div class="form-group col-12">
                           <label for="exampleInputPassword1">Address</label>
-                          <input type="text" class="form-control" id="address" name="address" placeholder="House No. Street Name, Brgy, City">
-                          @error('address') <span class="text-danger">{{$message}}</span> @enderror
+                          <input type="text" class="form-control" id="add" name="add" placeholder="House No. Street Name, Brgy, City">
+                          @error('add') <span class="text-danger">{{$message}}</span> @enderror
                         </div>
                         <div class="form-group col-6">
                           <label for="exampleInputPassword1">Date of Birth</label>
@@ -66,5 +69,4 @@
         </div><!-- /.container-fluid -->
       </div>
     </div>
-  </div>
 @endsection
