@@ -46,12 +46,12 @@
                   <input type="text" class="form-control" id="address" name="address" placeholder="Enter Address" value="{{ $employees->address}}">
                 </div>
                 <div class="form-group col-6">
-                  <label for="exampleInputPassword1">Zip</label>
-                  <input type="number" class="form-control" id="zip" name="zip" placeholder="" value="{{ $employees->zip}}">
+                  <label for="exampleInputPassword1">Date of birth</label>
+                  <input type="date" class="form-control" id="dob" name="dob" placeholder="YYYY-MM-DD" value="{{ $employees->dob}}">
                 </div>
                 <div class="form-group col-6">
-                  <label for="exampleInputPassword1">Age</label>
-                  <input type="number" class="form-control" id="age" name="age" placeholder="" value="{{ $employees->age}}">
+                  <label for="exampleInputPassword1">Contact No</label>
+                  <input type="text" class="form-control" id="contact" name="contact" placeholder="Enter your Contact No" value="{{ $employees->contact}}">
                 </div>
                 <div class="form-group col-6">
                   <button type="submit" class="btn btn-success col-12">Update Student Record</button>

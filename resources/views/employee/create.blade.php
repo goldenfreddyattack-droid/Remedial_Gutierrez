@@ -1,5 +1,3 @@
-@extends('layouts.app')
-
 @section('content')
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -25,8 +23,7 @@
                 <div class="card-header">
                   <h3 class="card-title">Add new employee</h3>
                 </div>
-                <form  action="{{ route('employee.store') }}" method="POST">
-                  @csrf
+                <form>
                     <div class="row card-body col-12">
                         <div class="form-group col-6">
                           <label for="exampleInputPassword1">Lastname</label>
@@ -35,25 +32,22 @@
                         <div class="form-group col-6">
                           <label for="exampleInputPassword1">Middlename</label>
                           <input type="text" class="form-control g-2" id="midname" name="mname" placeholder="Enter your Middlename" require>
-                        </div>
-                        @error('lname') <span class="text-danger">{{$message}}</span>@enderror
-                        @error('midname') <span class="text-danger">{{$message}}</span> @enderror  
+                        </div> 
                         <div class="form-group col-12">
                           <label for="exampleInputPassword1">FirstName</label>
                           <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter your First Name">
                         </div>
-                          @error('fname') <span class="text-danger">{{$message}}</span> @enderror
                         <div class="form-group col-12">
                           <label for="exampleInputPassword1">Address</label>
                           <input type="text" class="form-control" id="address" name="address" placeholder="House No. Street Name, Brgy, City">
                         </div>
-                          @error('address') <div class="text-danger">{{ $message }}</div> @enderror
                         <div class="form-group col-6">
                           <label for="exampleInputPassword1">Date of Birth</label>
                           <input type="date" class="form-control" id="dob" name="dob" placeholder="YYYY-MM-DD"> <br>
-                          @error('dob') <div class="text-danger">{{ $message }}</div> @enderror
                         </div>
                         <div class="form-group col-6">
+                          <label for="exampleInputPassword1">Contact No</label>
+                          <input type="text" class="form-control" id="contact" name="contact" placeholder="Enter your Contact No">
                         </div>
                         <button type="submit" class="btn btn-success col-6 m-auto">Submit Student Record</button>
                       </div>
@@ -67,5 +61,4 @@
       </div>
     </div>
   </div>
-    <!-- /.content -->
 @endsection
